@@ -14,6 +14,7 @@ import pandas as pd
 from google.cloud import storage
 
 dataframe = pd.read_csv(csv_path)
+dataframe = dataframe[dataframe['Path'].str.contains('natural')].reset_index(drop=True)
 dataframe_length = len(dataframe)
 
 storage_client = storage.Client()
