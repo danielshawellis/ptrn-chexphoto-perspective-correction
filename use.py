@@ -31,12 +31,12 @@ for index in range(dataframe_length):
 	img_blob = bucket.blob(img_file_path)
 	img_data = img_blob.download_as_string()
 	img_array = np.frombuffer(img_data, dtype=np.uint8)
-	img = cv.imdecode(img_array, cv.IMREAD_COLOR)
+	img_full = cv.imdecode(img_array, cv.IMREAD_COLOR)
+	img = cv.resize(img_full, (224, 224), interpolation=cv.INTER_AREA)
 	if img is None:
 		raise ValueError("Failed to decode the image from the provided blob.")
 
-	model_in = cv.resize(img, (224, 224), interpolation=cv.INTER_AREA)
-	model_in = cv.cvtColor(model_in, cv.COLOR_BGR2RGB)
+	model_in = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 	model_in = np.expand_dims(model_in, axis=0)
 	model_in = preprocess_input(model_in)
 	out = ptrn.predict_on_batch(model_in)[0]
