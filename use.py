@@ -21,7 +21,7 @@ bucket = storage_client.bucket(bucket_name)
 
 ptrn = load_model(ptrn_path)
 
-for index in range(len(dataframe_length)):
+for index in range(dataframe_length):
 	print(f"Processing image [{index + 1}/{dataframe_length}]")
 
 	dataframe_path = dataframe.iloc[index]['Path']
