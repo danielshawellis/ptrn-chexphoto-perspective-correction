@@ -1,5 +1,5 @@
 ptrn_path = 'instances/best_iou.h5'
-csv_path = '/home/jupyter/ai-radiology-notebook/dataframes/chexphoto_v10/train.csv'
+csv_path = '/home/jupyter/ai-radiology-notebook/dataframes/chexphoto_v10/valid.csv'
 bucket_name = 'bucket-ai-radiology-005'
 bucket_root_dir = ''
 local_out_dir = '/home/jupyter/rectified-chexphoto'
