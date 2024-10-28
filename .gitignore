@@ -6,3 +6,4 @@ log.csv
 *.jpg
 *.h5
 test.py
+.venv
